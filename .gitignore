@@ -1,0 +1,25 @@
+# Ignore everything
+
+!/DeviceServiceManager/
+/DeviceServiceManager/*
+!/DeviceServiceManager/DeviceServiceManager/
+/DeviceServiceManager/DeviceServiceManager/*
+!/DeviceServiceManager/DeviceServiceManager/*.yml
+!/DeviceServiceManager/DeviceServiceManager/*.yaml
+!/DeviceServiceManager/DeviceServiceManager/Dockerfile
+!/DeviceServiceManager/DeviceServiceManager/src/
+
+!/DeviceSimulator/
+/DeviceSimulator/*
+!/DeviceSimulator/*.py
+!/DeviceSimulator/Dockerfile
+!/DeviceSimulator/*.yaml
+!/DeviceSimulator/*.yml
+!/DeviceSimulator/*.csv
+
+/MonitoringAndCommunicationService/.idea/*
+/UserServiceManager/.idea/*
+/PowerPulseFE/*
+!/PowerPulseFE/PowerPulseFE/
+
+
