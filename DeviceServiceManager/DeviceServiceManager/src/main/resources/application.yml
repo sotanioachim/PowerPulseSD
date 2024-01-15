@@ -1,0 +1,31 @@
+server:
+  port: 8000
+  error:
+    include-message: always
+spring:
+  application:
+    name: device-management
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_IP:localhost}:5432/DevicesDB
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    host: ${RABBITMQ_IP:localhost}
+    port: 5672
+    username: guest
+    password: guest
+
+rabbitmq:
+  queue:
+    name: device_queue
+    device: device_id_queue
+  exchange:
+    name: sensor_exchange
+  routing:
+    key: device_routing_key
+    device: device_id_routing_key
