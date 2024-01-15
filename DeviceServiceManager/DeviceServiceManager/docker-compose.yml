@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db-device:
+    image: postgres
+    container_name: db-device-container
+    restart: on-failure
+    ports:
+      - "5434:5432"
+    environment: 
+      POSTGRES_DB: DevicesDB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    networks:
+      - ds-management-network
+  app:
+    hostname: device-manager
+    restart: on-failure
+    depends_on:
+      - db-device
+    image: device-manager-service
+    container_name: device-management-container
+    build: .
+    ports:
+      - "8001:8000"
+    environment:
+      - SPRING_PROFILES_ACTIVE=local-docker
+      - DB_IP=db-device
+      - RABBITMQ_IP=rabbitmq
+    networks:
+      - ds-management-network
+
+networks:
+  ds-management-network:
+    external: true
